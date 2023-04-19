@@ -53,6 +53,7 @@ The default rotational distance value shipped with the v400 is 4.5
 ### Resonance Calibration using the Flsun accelerometer
 Install the Flsun adxl to the extruder according the flsun install document 
 https://github.com/Flsun3d/Flsun-V400/blob/main/V400%20Pad%EF%BC%88V1.3%EF%BC%89Adxl345%20usage%20tutorial.pdf
+There is a full oultine of the installation process and configuration located in the flsun repo here: https://github.com/Flsun3d/Flsun_Speeder_Pad#adxl345-usage-tutorial
 
 ![flsunadxl](./images/Flsun_adxl345.png)
 
@@ -65,7 +66,7 @@ https://github.com/Flsun3d/Flsun-V400/blob/main/V400%20Pad%EF%BC%88V1.3%EF%BC%89
     - >~/klippy-env/bin/pip install -v numpy
 
 The default install document linked above works fine after flashing the stock Flsun Speeder-pad image, however when running "stock" Klipper, it is necessary to configure the system slightly differently.
-I used the stock asxl345.cfg settings from Flsun (recreated from the above .pdf).
+I used the stock adxl345.cfg settings from Flsun (recreated from the above .pdf).
 
 Instead of using the serial settings outlined in the PDF, it is necessary to query for the correct address
 Do the following

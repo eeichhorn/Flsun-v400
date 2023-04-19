@@ -57,6 +57,9 @@ For full KlipperScreen configuration details, see: https://github.com/jordanruth
 ## [calibration ](calibration)
 Contains calibration related information including enhanced delta calibration
 
+## [configs](configs)
+Contains Flsun v400 config examples. Both Flsun Klipper, and Official Klipper config examples are included
+
 ## [original v400 USB drive contents](original-v400-USB-files)
 Contains the original files include on the USB drive included with the v400.
     
