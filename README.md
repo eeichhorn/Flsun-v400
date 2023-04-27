@@ -6,19 +6,25 @@ Use the menu in the upper left for easy navigation within this page.
 
 Flsun ships the v400 with a "custom" Klipper image that has been slightly modified for ease of use.
 
-All of the information in this repo assumes you either have flashed to the "stock" Klipper image using the link below. (I highly recommend installing "stock" Klipper in order to unlock added features) 
-...or have a least enabled ssh by flashing the Flsun speeder-pad firmware (https://flsun3d.com/pages/speeder-pad) 
+All of the information in this repo assumes you either have flashed to the "official" Klipper image using the link below. (I highly recommend installing "official" Klipper in order to unlock added features) 
+...or have a least enabled ssh by flashing the Flsun speeder-pad firmware (https://flsun3d.com/pages/speeder-pad) or using this guide to "reset" the password https://github.com/amoutiers/FLSun-Speeder-Pad-root-password.
 
-# Install "stock" Klipper
+NOTE: If you flash the klipper speeder-pad firmware, you will also need to get the v400 configs and load them.
 
-The guide in the link below offers an excellent overview, and instructions for installing the "official" Klipper software on the printer, and Speeder-Pad.
+# Install "official" Klipper
+
+The guide in the link below offers an excellent overview, and instructions for installing the "official" Klipper software on the printer MCU, and Speeder-Pad.
 See https://github.com/Guilouz/Klipper-Flsun-Speeder-Pad#restore-os-image-file
-## How to "revert" to the stock KlipperScreen (After following the guide above)
+For an more advanced use of using the v400 with official Klipper builds:
+See https://github.com/danorder/OEM-VANILLA-V400-Klipper-
 
-In addition to installing the "stock" Klipper, I preferred the stock version of KlipperScreen so I did not use the one outlined in the guide (https://github.com/Guilouz/Klipper-Flsun-Speeder-Pad#install-official-builds-1-instance)
+## How to "revert" to the official KlipperScreen version (After following the guide above)
 
-This way the screen is stock KlipperScreen and keeps the default color themes intact etc..
-It is simple to get the Stock KlipperScreen back if you've already installed the custom software. If you are just starting the process, and want to use the stock version of KlipperScreen, simply use kiauh to install the "official" version ang ignore setting up the "custom" KlipperScreen in the guide.
+In addition to installing the "official" Klipper, I preferred the official version of KlipperScreen so I did not use the one outlined in the guide (https://github.com/Guilouz/Klipper-Flsun-Speeder-Pad#install-official-builds-1-instance)
+
+You do loose the added calibration menu included with the fork, so keep that i mind. Since I use official Klipper calibration docs which use the gcode console, it didn't really effect me.
+
+It is simple to get the official KlipperScreen back if you've already installed the custom version. If you are just starting the process, and want to use the official version of KlipperScreen, simply use kiauh to install the "official" version and ignore setting up the "custom" KlipperScreen in the guide.
 
 If you've already gone through al of the steps in the guide you can revert to official Klipper screen by following the following steps:
 Login into the speeder-pad using ssh (default password: <b>flsun</b>)
@@ -36,18 +42,18 @@ Now start Kiua (This is the same tool used to install Klipper, Mainsail etc.)
 > - Select install (1) 
 > - Select KlipperScreen (5)
 
-Now wait for the installation to complete (This takes a few minutes)
+Wait for the installation to complete (This takes a few minutes)
 (you mey need to enter the root password during install)
 
 Restart
 >sudo reboot now
 (You may need to reconnect to eh printer from mainsail, or KlipperScreen)
 
-Once complete, you should have the stock Klipper Screen.
+Once complete, you should have the official Klipper Screen version.
 
 I started from scratch and added the LED menu to control the LED lights from the touch panel.
 
-To add  a web cam stream, add the following to KlipperScreen.cfg
+To add  a web cam stream right to your KlipperScreen, add the following to KlipperScreen.cfg
 >[printer Flsun v400]
 >camera_url: http://127.0.0.1/webcam/?action=stream
 
@@ -76,6 +82,23 @@ Useful models for printing
 
 
 # Helpful Hints
+#### Exclude Object during a print
+Add the ability to exclude objects in a multipart print
+Klipper supports the ability to exclude object in a multipart print. THis can be helpful if part of your print has failed, but you want to continue printing the rest.
+The process is simple:
+Add and empty section to you printer.cfg using the web interface (mainsail ui)
+```
+[exclude_object]
+```
+
+Then in "moonraker.cfg" add the following
+```
+[file_manager]
+enable_object_processing: True
+```
+
+See https://docs.mainsail.xyz/overview/features/exclude-objects
+For a more detailed explanation see https://www.klipper3d.org/Exclude_Object.html
 
 A Handy set of information for Klipper in general: https://github.com/rootiest/zippy-klipper_config/tree/master/guides
 
