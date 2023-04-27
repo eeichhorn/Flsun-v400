@@ -23,6 +23,9 @@ cors_domains =
 [machine]
 shutdown_action = halt
 
+[file_manager]
+enable_object_processing = True
+
 [octoprint_compat]
 
 [history]

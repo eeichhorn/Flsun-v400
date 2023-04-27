@@ -51,7 +51,7 @@ The default rotational distance value shipped with the v400 is 4.5
 * Model: [Pressure Advance Model](../models\calibration\square_tower.stl)
 
 ### Resonance Calibration using the Flsun accelerometer
-Install the Flsun adxl to the extruder according the flsun install document 
+Install the Flsun adxl on the extruder according the flsun install documen, or you can print a mount. 
 https://github.com/Flsun3d/Flsun-V400/blob/main/V400%20Pad%EF%BC%88V1.3%EF%BC%89Adxl345%20usage%20tutorial.pdf
 There is a full oultine of the installation process and configuration located in the flsun repo here: https://github.com/Flsun3d/Flsun_Speeder_Pad#adxl345-usage-tutorial
 
@@ -65,15 +65,16 @@ There is a full oultine of the installation process and configuration located in
     - >sudo apt install python3-numpy python3-matplotlib libatlas-base-dev
     - >~/klippy-env/bin/pip install -v numpy
 
-The default install document linked above works fine after flashing the stock Flsun Speeder-pad image, however when running "stock" Klipper, it is necessary to configure the system slightly differently.
+The default install document linked above works fine after flashing the stock Flsun Speeder-pad image, however when running "official" Klipper, it is necessary to configure the system slightly differently.
 I used the stock adxl345.cfg settings from Flsun (recreated from the above .pdf).
+See [adxl345.cfg](../configs/official-klipper/adxl345.cfg)
 
 Instead of using the serial settings outlined in the PDF, it is necessary to query for the correct address
 Do the following
 >ssh pi@speeder-pad (or IP address if hostname does not work)
 >ls /dev/serial/by-id/*
 
-Copy the address returned. NOTE: your printer will also be listed in addtion to any other USB devices connected. 
+Copy the address returned. NOTE: your printer will also be listed in addition to any other USB devices connected. 
 ex.
 Connected to the 3rd USB Port, the flsun adxl345's location was:
 >/dev/serial/by-id/usb-Klipper_stm32f103xe_5B2A393138360B0036343231-if00 
