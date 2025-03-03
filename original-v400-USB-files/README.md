@@ -1,1 +1,1 @@
-The contents of this folder contains the original Flsun v400 files contained on the USB drive included with he machine. This excludes the video how-to files at this time.
+The contents of this folder contains the original Flsun v400 files contained on the USB drive included with the machine. This excludes the video how-to files at this time.

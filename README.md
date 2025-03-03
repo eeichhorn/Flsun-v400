@@ -14,8 +14,9 @@ NOTE: If you flash the klipper speeder-pad firmware, you will also need to get t
 # Install "official" Klipper
 
 The guide in the link below offers an excellent overview, and instructions for installing the "official" Klipper software on the printer MCU, and Speeder-Pad.
-See https://github.com/Guilouz/Klipper-Flsun-Speeder-Pad#restore-os-image-file
-For an more advanced use of using the v400 with official Klipper builds:
+See https://github.com/Guilouz/Klipper-Flsun-Speeder-Pad/wiki/Update-dependencies
+
+For a more advanced use of using the v400 with official Klipper builds:
 See https://github.com/danorder/OEM-VANILLA-V400-Klipper-
 
 ## How to "revert" to the official KlipperScreen version (After following the guide above)
@@ -26,7 +27,7 @@ You do loose the added calibration menu included with the fork, so keep that i m
 
 It is simple to get the official KlipperScreen back if you've already installed the custom version. If you are just starting the process, and want to use the official version of KlipperScreen, simply use kiauh to install the "official" version and ignore setting up the "custom" KlipperScreen in the guide.
 
-If you've already gone through al of the steps in the guide you can revert to official Klipper screen by following the following steps:
+If you've already gone through all of the steps in the guide you can revert to official Klipper screen by following the following steps:
 Login into the speeder-pad using ssh (default password: <b>flsun</b>)
 >ssh pi@speeder-pad (or IP address if hostname does not work)
 >cd 
