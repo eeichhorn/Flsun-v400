@@ -15,10 +15,15 @@ trusted_clients =
 cors_domains = 
 	*.lan
 	*.local
+	*.internal
 	*://localhost
 	*://localhost:*
 	*://my.mainsail.xyz
 	*://app.fluidd.xyz
+
+[timelapse]
+output_path = ~/printer_data/timelapse/
+frame_path = /tmp/timelapse/printer
 
 [machine]
 shutdown_action = halt
@@ -33,6 +38,13 @@ enable_object_processing = True
 [update_manager]
 channel = dev
 refresh_interval = 168
+
+[update_manager crowsnest]
+type = git_repo
+path = ~/crowsnest
+origin = https://github.com/mainsail-crew/crowsnest.git
+managed_services = crowsnest
+install_script = tools/pkglist.sh
 
 [update_manager mainsail]
 type = web
@@ -49,14 +61,12 @@ requirements = scripts/KlipperScreen-requirements.txt
 install_script = scripts/KlipperScreen-install.sh
 managed_services = KlipperScreen
 
-[update_manager crowsnest]
+[update_manager pgcode]
 type = git_repo
-path = ~/crowsnest
-origin = https://github.com/mainsail-crew/crowsnest.git
-managed_services = crowsnest
-install_script = tools/install.sh
-
-[timelapse]
+primary_branch = main
+origin = https://github.com/Kragrathea/pgcode.git
+path = ~/pgcode
+is_system_service = False
 
 [update_manager timelapse]
 type = git_repo

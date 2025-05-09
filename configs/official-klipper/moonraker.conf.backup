@@ -15,13 +15,11 @@ trusted_clients:
 cors_domains:
     *.lan
     *.local
+    *.internal
     *://localhost
     *://localhost:*
     *://my.mainsail.xyz
     *://app.fluidd.xyz
-
-[machine]
-shutdown_action: halt
 
 [octoprint_compat]
 
@@ -30,33 +28,3 @@ shutdown_action: halt
 [update_manager]
 channel: dev
 refresh_interval: 168
-
-[update_manager mainsail]
-type: web
-channel: stable
-repo: mainsail-crew/mainsail
-path: ~/mainsail
-
-[update_manager KlipperScreen]
-type: git_repo
-path: /home/pi/KlipperScreen
-origin: https://github.com/Guilouz/KlipperScreen-Flsun-Speeder-Pad.git
-env: /home/pi/.KlipperScreen-env/bin/python
-requirements: scripts/KlipperScreen-requirements.txt
-install_script: scripts/KlipperScreen-install.sh
-
-[update_manager crowsnest]
-type: git_repo
-path: ~/crowsnest
-origin: https://github.com/mainsail-crew/crowsnest.git
-managed_services: crowsnest
-install_script: tools/install.sh
-
-[timelapse]
-
-[update_manager timelapse]
-type: git_repo
-primary_branch: main
-path: ~/moonraker-timelapse
-origin: https://github.com/mainsail-crew/moonraker-timelapse.git
-managed_services: klipper moonraker
